@@ -22,7 +22,7 @@ function cadastrarAssunto($nome,  $disciplina) {
     $stmt_insert->bindParam(2, $disciplinas_id, PDO::PARAM_INT);
 
     if ($stmt_insert->execute()) {
-        echo "Cadastro Realizado com sucesso!!";
+        echo "Cadastro realizado com sucesso!!";
         echo "<button type='button' class='btn btn-success'><a href='assunto_prof.php'>Voltar</a></button>";            exit();
     } else {
         $message = "Erro ao cadastrar: " . implode(", ", $stmt_insert->errorInfo()); // Exibir mensagem de erro

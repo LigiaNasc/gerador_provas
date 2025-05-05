@@ -76,15 +76,12 @@ $html = "
 <p>{$prova['cabecalho']}</p>
 
 <hr>
-
-<h2>Questões:</h2>
 <ol>";
 
 foreach ($questoes as $q) {
     $html .= "<li class='questao'>
-                <p><strong>Disciplina:</strong> {$q['disciplina']} | 
-                   <strong>Assunto:</strong> {$q['assunto']}</p>
-                <p>{$q['enunciado']}</p>";
+               
+                <p><strong>{$q['enunciado']}</strong></p>";
 
     // Buscar alternativas dessa questão
     $stmt_alt = $conn->prepare("

@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 :root {
-    --title_gradient:#13293d, #0a4769, #0a4769, #1b98e0, #e8f1f2;
+    --title_gradient: 120deg, #0a4769, #1b98e0, #e8f1f2;
     --gradient: 120deg, #13293d, #0a4769, #0a4769, #1b98e0;
 }
 
@@ -12,8 +12,8 @@
     font-weight: 400;
 }
 
-
 body {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,4 +21,3 @@ body {
     width: 100%;
     overflow-x: hidden;
 }
-

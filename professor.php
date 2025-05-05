@@ -35,7 +35,7 @@ if (session_status() === PHP_SESSION_NONE) {
         </form>
         
         <div class="table-responsive">
-            <table class="tabela-dados">
+            <table class="tabela-dados"border='1'>
                 <thead>
                     <tr>
                         <th>Nome</th>
