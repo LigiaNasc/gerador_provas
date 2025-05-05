@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100vw;
+    overflow-x: hidden;
+    font-family: "Poppins", serif;
+
+    
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.5em;
+    padding: 10px;
+    background-color: blue;
+}
+
+.navbar ul {
+    list-style: none;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    margin: 0;
+}
+
+.navbar li, a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 400;
+    margin: 0 25px;
+
+}
+
+.main-section {
+    text-align: justify;
+    margin: 60px;
+}
