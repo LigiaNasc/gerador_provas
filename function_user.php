@@ -3,7 +3,7 @@
 function cadastrarUsuario($nome, $email, $password,) {
     $conn = getConexao();
     $message = '';
-    $tipo_id = 1 ; // ID para "Usuario"
+    $tipo_id = 3 ; // ID para "Usuario"
 
     // Verificar se o tipo_id existe
     $stmt_check = $conn->prepare('SELECT id FROM tipos_usuario WHERE id = ?');

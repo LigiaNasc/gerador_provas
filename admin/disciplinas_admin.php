@@ -65,10 +65,6 @@ include('../protect.php');
         <a href="admin.php">Voltar</a>
     </main>
 
-    <footer class="footer"></footer>
-
-    <script src="../assets/js/navbar.js"></script>
-    <script src="../assets/js/footer.js"></script>
 </body>
 
 </html>

@@ -1,35 +1,54 @@
 <?php 
-require_once('../conex.php'); // Ajuste o caminho se necessário
+require_once('../conex.php');
+session_start();
+require('verificar_admin.php');
+verificarAdmin();
 
-session_start(); // Inicia a sessão
-require('verificar_admin.php'); // Inclua a função de verificação
-
-// Chama a função para verificar se o usuário é um administrador
-verificarAdmin(); 
-
-$conn = getConexao(); // Certifique-se de que a conexão está correta
+$conn = getConexao();
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
-    // Verifica se o ID é um número inteiro
     if (filter_var($id, FILTER_VALIDATE_INT)) {
-        // Iniciar a exclusão do professor
-        $stmt = $conn->prepare("DELETE FROM disciplinas WHERE id = :id");
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT); // Use bindParam para PDO
+        // Verifica se há solicitação de exclusão forçada
+        $forcar = isset($_GET['forcar']) && $_GET['forcar'] === '1';
 
-        // Verificar se a execução foi bem-sucedida
+        // Verifica se há assuntos vinculados à disciplina
+        $stmt_check = $conn->prepare("SELECT COUNT(*) AS total FROM assuntos WHERE disciplina_id = :id");
+        $stmt_check->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt_check->execute();
+        $result = $stmt_check->fetch(PDO::FETCH_ASSOC);
+
+        if ($result && $result['total'] > 0 && !$forcar) {
+            echo "Não é possível excluir esta disciplina. Existem assuntos vinculados a ela.";
+            echo "<br><a href='excluir_disciplina.php?id=$id&forcar=1'><button>Excluir mesmo assim</button></a>";
+            echo "<br><button type='button'><a href='disciplina_admin.php'>Voltar</a></button>";
+            exit();
+        }
+
+        // Se for exclusão forçada, apaga os assuntos primeiro
+        if ($forcar) {
+            $stmt_delete_assuntos = $conn->prepare("DELETE FROM assuntos WHERE disciplina_id = :id");
+            $stmt_delete_assuntos->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt_delete_assuntos->execute();
+        }
+
+        // Agora exclui a disciplina
+        $stmt = $conn->prepare("DELETE FROM disciplinas WHERE id = :id");
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
         if ($stmt->execute()) {
-            // Redireciona após a exclusão
-            echo'Disciplina Excluida com sucesso';
-            echo "<button type='button' class='btn btn-success'><a href='disciplinas_admin.php'>Voltar</a></button>";            exit();
+            echo "Disciplina excluída com sucesso!";
+            echo "<br><button type='button'><a href='disciplina_admin.php'>Voltar</a></button>";
             exit();
         } else {
             echo "Erro ao excluir a disciplina.";
         }
+
     } else {
         echo "ID da disciplina inválido.";
     }
+
 } else {
     echo "ID da disciplina não fornecido.";
 }

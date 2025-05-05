@@ -18,7 +18,7 @@ try {
         // Consulta para obter os dados do professor
         $stmt = $conn->prepare('SELECT professores.id, professores.nome, professores.email, disciplinas.id AS disciplina_id, disciplinas.nome AS disciplina_nome 
         FROM professores 
-        JOIN disciplinas ON professores.disciplinas_id = disciplinas.id 
+        JOIN disciplinas ON professores.disciplina_id = disciplinas.id 
         WHERE professores.id = :id');
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->execute();

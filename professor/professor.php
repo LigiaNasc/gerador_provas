@@ -17,7 +17,7 @@ verificarProfessor();
     <title>Painel do Professor</title>
 </head>
 <body>
-    <h1>Bem-vindo ao Painel do Professor,  <?php echo htmlspecialchars($_SESSION['nome']); ?>!</h1>
+    <h1>Bem-vindo ao Painel do Professor  <?php echo htmlspecialchars($_SESSION['nome']); ?>!</h1>
     <p>Aqui você pode gerenciar Assuntos, Questões etc.</p>
     <a href="../function_sair.php">Sair</a>
     <a href="assunto_prof.php">Gerenciar Assuntos</a>

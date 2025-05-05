@@ -4,7 +4,7 @@
 
 function getConexao()
 {
-    $dsn = 'mysql:host=localhost;dbname=gerador_provas;charset=utf8';
+    $dsn = 'mysql:host=localhost;dbname=gerador_de_gabarito;charset=utf8';
     // ? Tipo do banco, local do banco e nome do banco
     $user = 'root';
     $pass = '';
