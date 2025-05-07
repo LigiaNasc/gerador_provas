@@ -1,7 +1,5 @@
 <?php
   require_once('conex.php');
-  include('function_login.php');
-
 ?>
 
 <!DOCTYPE html>
@@ -22,33 +20,25 @@
   <link rel="stylesheet" href="assets/css/login.css">
   <link rel="stylesheet" href="assets/css/navbar.css">
   <link rel="stylesheet" href="assets/css/footer.css">
-  <title>Página de login</title>
+  <title>Esqueci minha senha</title>
 </head>
   <body>
     <nav class="navbar"></nav>
 
     <main class="main-content">
         
-        <section class="main-section-1">
-          <div class="section-title">
-            <h1>Não possui cadastro?</h1>
-          </div>
-            <button id="btn-title"><a href="cadastro_user.php">Cadastrar <img src="assets/img/seta.png" alt=""></a></button>
-        </section>
-        
         <section class="main-section-2">
-            <form action="" method="POST" class="form-login">
+            <form action="recuperar_senha.php" method="POST" class="form-login">
                 <img src="assets/img/v-logo.png" alt="">
 
                 <input type="text" id="email" name="email"
                 placeholder="Email">
-                <input type="password" id="password" name="password" placeholder="Senha">
-
-                <button type="submit">Entrar</button>
-
-                <a href="esqueci_minha_senha.php">Esqueci minha senha</a>
-                <?php echo "<p id='senha-incorreta'>" . htmlspecialchars($message) . "</p>"?>
-                
+               
+                <button type="submit">Recuperar Senha</button>
+                <div>
+                    <a href="index.php">Voltar</a>
+                </div>
+                <!-- <?php echo "<p id='senha-incorreta'>" . htmlspecialchars($message) . "</p>"?> -->
             </form>
         </section>
     </main>

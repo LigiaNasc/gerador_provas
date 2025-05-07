@@ -27,8 +27,14 @@ include('protect.php');
     <title>Selecionar Questões</title>
 </head>
 <body>
+<nav class="navbar"></nav>
+
+    <main class="main-content">
+        
+        <section class="main-section-1">
+          <div class="section-title">
             <h1>Selecionar Questões</h1>
-            <main class="main-content">
+            
                 <form method="POST" action="questoes.php" class="form-login">
                     <label for="disciplina">Disciplina:</label>
                     <select name="disciplina" id="disciplina">
@@ -56,11 +62,11 @@ include('protect.php');
                     <button type="submit">Buscar Questões</button>
                 </form>
                         <a href="index.php">Voltar</a>
-            </main>
-  <footer class="footer"></footer>
+     
+        </section>
+      </main>
 
-  <script src="assets/js/navbar.js"></script>
-  <script src="assets/js/footer.js"></script>
+    
     <?php
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['disciplina'])) {
         $disciplinaId = $_POST['disciplina'];
@@ -102,7 +108,11 @@ include('protect.php');
         } else {
             echo "<p>Nenhuma questão encontrada.</p>";
         }
-    }
+    }echo"<br><br><br>";
     ?>
+    <footer class="footer"></footer>
+
+<script src="assets/js/navbar.js"></script>
+<script src="assets/js/footer.js"></script>
 </body>
 </html>

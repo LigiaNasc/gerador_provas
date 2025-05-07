@@ -7,7 +7,7 @@ $sql = "SELECT professores.id, professores.nome, professores.email,
                tipos_usuario.tipo AS tipos_usuario, 
                disciplinas.nome AS disciplinas_nome 
         FROM professores
-        JOIN disciplinas ON professores.disciplinas_id = disciplinas.id
+        JOIN disciplinas ON professores.disciplina_id = disciplinas.id
         JOIN tipos_usuario ON professores.tipo_id = tipos_usuario.id
         WHERE professores.tipo_id = 2";
 
