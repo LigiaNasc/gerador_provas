@@ -30,10 +30,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['tipo_id'] = $result['tipo_id'];
             $_SESSION['nome'] = $result['nome'];
             // Redireciona com base no tipo de usuário
-            if ($_SESSION['tipo_id'] == 1) { // Admin
+            if ($_SESSION['tipo_id'] == 1) {
+                echo "Redirecionando para o admin..."; // Teste
+                exit(); // Comente o header temporariamente para ver
                 header("Location: admin/admin.php");
-            } else {
+                exit();
+            
+
+            } elseif ($_SESSION['tipo_id'] == 3) { // Usuario normal
                 header("Location: index.php");
+            } else {
+                $message = 'Tipo de usuário inválido.';
             }
             exit();
         } else {

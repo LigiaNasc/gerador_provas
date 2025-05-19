@@ -1,0 +1,19 @@
+.section-title {
+  font-family: "Montserrat", sans-serif;
+  background-image: linear-gradient(var(--gradient));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bolder;
+  font-size: 1.75em;
+  width: 100%;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 50px 0;
+  padding: 60px;
+}

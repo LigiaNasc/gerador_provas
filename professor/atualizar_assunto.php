@@ -3,12 +3,12 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 require_once('../conex.php');
-include('../protect.php');
 require_once('verificar_professor.php'); // Inclua a função de verificação
 
 // Chama a função para verificar se o usuário é um Professor
 verificarProfessor();
 // Inicia sessão se não estiver iniciada
+include('../protect.php');
 
 
 

@@ -3,11 +3,12 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 require_once('../conex.php'); // Inclua seu arquivo de conexão
-include('../protect.php');
 require_once('verificar_professor.php');// Inclua a função de verificação
 
 // Chama a função para verificar se o usuário é um administrador
 verificarProfessor();
+include('../protect.php');
+
 include('function_cad_ass.php');
 
 ?>

@@ -1,7 +1,10 @@
 <?php 
 require_once('../conex.php'); // Ajuste o caminho se necessário
 
-session_start(); // Inicia a sessão
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 require('verificar_admin.php'); // Inclua a função de verificação
 
 // Chama a função para verificar se o usuário é um administrador

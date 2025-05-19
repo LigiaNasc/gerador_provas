@@ -29,33 +29,26 @@
 
     <main class="main-content">
         
-        <section>
-          <div class="title">
+        <section class="main-section-1">
+          <div class="section-title">
             <h1>Não possui cadastro?</h1>
           </div>
-            <button id="btn-title"><a href="cadastro_user.php">Cadastrar</a></button>
+            <button id="btn-title"><a href="cadastro_user.php">Cadastrar <img src="assets/img/seta.png" alt=""></a></button>
         </section>
         
-        <section>
+        <section class="main-section-2">
             <form action="" method="POST" class="form-login">
-                <label for="email">Email:</label>
-                <input type="text" id="email" name="email" required>
+                <img src="assets/img/v-logo.png" alt="">
 
-                <label for="password">Senha:</label>
-                <input type="password" id="password" name="password" required>
+                <input type="text" id="email" name="email"
+                placeholder="Email">
+                <input type="password" id="password" name="password" placeholder="Senha">
 
-                <button style=" border: none;
-    border-radius: 20px;
-    padding: 0 30px;
-    font-weight: 600;
-    font-size: 0.7em;
-    background-color: #08486B;
-    color: #fff;
-    "  type="submit">Entrar</button>
-                </div>
-               <?php echo "<p style='font-size: 14px; color: red; text-align: center; margin-top: 10px;'>" . htmlspecialchars($message) . "</p>"; ?>
+                <button type="submit">Entrar</button>
 
-
+                <a href="esqueci_minha_senha.php">Esqueci minha senha</a>
+                <?php echo "<p id='senha-incorreta'>" . htmlspecialchars($message) . "</p>"?>
+                
             </form>
         </section>
     </main>

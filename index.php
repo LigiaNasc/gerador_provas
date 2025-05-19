@@ -3,7 +3,6 @@
   include('function_login.php');
 
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -38,58 +37,43 @@
       </div>
 
       <p class="">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi rem hic
-        eligendi id. Perspiciatis, voluptates amet! Perspiciatis, saepe
-        provident officiis placeat alias cupiditate delectus facilis eius.
-        Aspernatur, iste. Rerum, deserunt.
+        Bem-vindo ao Gerador de Provas!
+        Nossa plataforma foi criada para facilitar a vida de professores, coordenadores e educadores em geral. Aqui, você pode montar provas personalizadas em poucos minutos, escolhendo questões de um banco organizado por matérias e assuntos. Depois, basta gerar o arquivo em PDF, pronto para ser impresso ou distribuído digitalmente.
       </p>
       <p class="">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque id
-        minus facilis neque? Saepe ullam nostrum eius beatae eaque odit, eum,
-        repellat sed error cum, vero assumenda expedita laudantium sint.
+        Um gerador de provas é uma ferramenta, geralmente de software, usada para criar questões de provas ou exames. Esses geradores podem produzir diferentes tipos de questões, como múltipla escolha, dissertativas, verdadeiro ou falso, entre outras.
       </p>
       <p class="">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam adipisci
-        quod excepturi eius nulla quae ex ad est consectetur, quidem possimus
-        eum, unde voluptatem et soluta doloremque voluptate veritatis
-        eligendi!
+        Eles podem ser configurados para gerar provas com base em conteúdos específicos, ajustando o nível de dificuldade e a quantidade de questões, conforme as necessidades do usuário (como professores, escolas ou instituições de ensino).
       </p>
       <p class="">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum
-        consequuntur dolores, ducimus molestias nihil eveniet nisi repellat
-        possimus placeat corrupti error, quibusdam at enim. Illum beatae
-        maxime porro officia veritatis.
-      </p>
-      <p class="">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam
-        nesciunt quisquam illum suscipit possimus. Omnis, nesciunt iusto.
-        Eligendi deserunt eius est labore debitis animi illo neque cupiditate!
-        Itaque, aliquid molestiae.
+        Sabemos o quanto o processo de elaborar avaliações pode ser demorado. Pensando nisso, desenvolvemos uma ferramenta intuitiva, com recursos que otimizam o tempo e aumentam a qualidade das provas. Escolha questões manualmente ou deixe o sistema montar uma prova aleatória para você — o controle está em suas mãos.
       </p>
     </section>
 
     <section class="main-section-2">
       <div class="">
         <p class="">
-          Provas de múltipla escolha:
+          <strong>Provas de múltipla escolha:</strong>
           Geram perguntas com várias alternativas, sendo que apenas uma delas é correta.
         </p>
       </div>
       <div class="">
         <p class="">
-          Correção Automatizada:
+          <strong>Correção Automatizada:</strong>
           Os sistemas de geradores de provas tem funcionalidades de correção automática.
         </p>
       </div>
       <div class="">
         <p class="">
-          Disponibilidade Online:
+          <img src="assets/img/dude.png"alt="">
+          <strong>Disponibilidade Online:</strong>
           Os geradores de provas estão disponíveis online, permitindo fácil acesso a educadores e alunos.
-
+        </p>
       </div>
       <div class="">
         <p class="">
-          Criação Rápida:
+          <strong>Criação Rápida:</strong>
           O gerador de provas economiza o tempo que o professor gastaria criando questões manualmente.
         </p>
       </div>
@@ -114,13 +98,14 @@
       <div class="cta-section-2">
         <form action="" method="post">
           <img src="assets/img/v-logo.png" alt="">
-          <input type="text" id="email" name="email" placeholder="Email" required>
-          <input type="password" id="password" name="password" placeholder="Senha" required>
+          <input type="text" id="email" name="email"placeholder="Email">
+          <input type="password" id="password" name="password" placeholder="Senha">
           <button>Entrar</button>
+
           <div>
+            <a href="esqueci_minha_senha.php">Esqueci minha senha</a>
             <a href="cadastro_user.php">Cadastre-se</a>
           </div>
-          <?php echo "<p>" . htmlspecialchars($message) . "</p>"?> 
         </form>
       </div>
     </div>

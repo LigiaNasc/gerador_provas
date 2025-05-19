@@ -1,13 +1,13 @@
 <?php
 require_once('../conex.php');
+require_once('verificar_admin.php'); // Inclua a função de verificação
+  verificarAdmin();
+
 include('../protect.php');
 // Inicia sessão se não estiver iniciada
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-require_once('verificar_admin.php'); // Verifica se o usuário é administrador
-verificarAdmin();
-
 $conn = getConexao();
 
 // Captura termo de busca
@@ -47,16 +47,17 @@ $result = $stmt;
     <link rel="stylesheet" href="../assets/css/main.css" />
     <link rel="stylesheet" href="../assets/css/navbar.css" />
     <link rel="stylesheet" href="../assets/css/footer.css" />
-    <link rel="stylesheet" href="../assets/css/tabela.css" />
+    <link rel="stylesheet" href="../assets/css/professor.css" />
     <title>Professores</title>
 </head>
 <body>
     <nav class="navbar"></nav>
+    
     <main class="container">
         <h1>Lista de Professores</h1>
         
-        <form method="POST" class="search-form">
-            <input  type="text" name="busca" placeholder="Pesquisar por nome ou disciplina"  value="<?= htmlspecialchars($busca) ?>"  >
+        <form method="POST" class="search-bar">
+            <input type="text" name="busca" placeholder="Pesquisar por nome ou disciplina" value="<?= htmlspecialchars($busca) ?>">
             <button type="submit" class="btn-buscar">Buscar</button>
         </form>
         
@@ -66,44 +67,42 @@ $result = $stmt;
                     <tr>
                         <th>Nome</th>
                         <th>Email</th>
+                   
                         <th>Disciplina</th>
                         <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
-                <?php if ($result->rowCount() > 0): ?>
-                    <?php while ($user = $result->fetch(PDO::FETCH_ASSOC)): ?>
+                    <?php if ($result->rowCount() > 0): ?>
+                        <?php while ($user_data = $result->fetch(PDO::FETCH_ASSOC)): ?>
+                            <tr>
+                                <input type="hidden" name="id"<?= htmlspecialchars($user_data['id']) ?>>
+                                <td><?= htmlspecialchars($user_data['nome']) ?></td>
+                                <td><?= htmlspecialchars($user_data['email']) ?></td>
+                                <td><?= htmlspecialchars($user_data['disciplinas_nome']) ?></td>
+                                <td class="tabela-acoes">
+                                    <a href="atualizar_prof.php?id=<?= $user_data['id'] ?>" class="btn-editar">Editar</a>
+                                    <a href="excluir_professor.php?id=<?= $user_data['id'] ?>" class="btn-excluir" onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
+                                </td>
+                            </tr>
+                        <?php endwhile; ?>
+                    <?php else: ?>
                         <tr>
-                            <td><?= htmlspecialchars($user['nome']) ?></td>
-                            <td><?= htmlspecialchars($user['email']) ?></td>
-                            <td>
-                              <?= htmlspecialchars($user['disciplinas_nome'] ?: 'Sem disciplina') ?>
-                            </td>
-                            <td class="acoes">
-                                <a href="atualizar_prof.php?id=<?= $user['id'] ?>" class="btn-editar">Editar</a>
-                                <a href="excluir_professor.php?id=<?= $user['id'] ?>"
-                                   class="btn-excluir"
-                                   onclick="return confirm('Tem certeza que deseja excluir?')">
-                                   Excluir
-                                </a>
-                            </td>
+                            <td colspan="6" class="sem-dados">Nenhum professor encontrado</td>
                         </tr>
-                    <?php endwhile; ?>
-                <?php else: ?>
-                    <tr>
-                        <td colspan="4" class="sem-dados">Nenhum professor encontrado</td>
-                    </tr>
-                <?php endif; ?>
+                    <?php endif; ?>
                 </tbody>
             </table>
         </div>
-
-        <div>
+        <div class="navigation-options">
+            <a href="admin.php">voltar</a>
             <a href="cadastro_professor.php" class="btn-cadastro">Cadastrar professor</a>
         </div>
-        <a href="admin.php">Voltar</a>
     </main>
 
     <footer class="footer"></footer>
+
+    <script src="assets/js/navbar.js"></script>
+    <script src="assets/js/footer.js"></script>
 </body>
 </html>

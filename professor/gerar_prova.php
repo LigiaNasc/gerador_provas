@@ -58,7 +58,6 @@ $html = "
     hr { margin: 20px 0; }
     ol { margin-top: 20px; }
     .questao { margin-bottom: 30px; }
-    footer { position: fixed; bottom: -30px; left: 0; right: 0; height: 50px; text-align: center; font-size: 10px; }
 </style>
 
 <header>
@@ -76,15 +75,12 @@ $html = "
 <p>{$prova['cabecalho']}</p>
 
 <hr>
-
-<h2>Questões:</h2>
 <ol>";
 
 foreach ($questoes as $q) {
     $html .= "<li class='questao'>
-                <p><strong>Disciplina:</strong> {$q['disciplina']} | 
-                   <strong>Assunto:</strong> {$q['assunto']}</p>
-                <p>{$q['enunciado']}</p>";
+               
+                <p><strong>{$q['enunciado']}</strong></p>";
 
     // Buscar alternativas dessa questão
     $stmt_alt = $conn->prepare("
@@ -107,28 +103,26 @@ foreach ($questoes as $q) {
     $html .= "</li>";
 }
 
-$html .= "</ol>
-
-<footer>
-    Página <span class='pageNumber'></span> de <span class='totalPages'></span>
-</footer>";
+$html .= "</ol>";
 
 // Configurar o Dompdf
 $options = new Options();
 $options->set('defaultFont', 'Arial');
 $options->set('isHtml5ParserEnabled', true);
-$options->set('isRemoteEnabled', true); // importante para carregar imagem externa
+$options->set('isRemoteEnabled', true); 
 
 $dompdf = new Dompdf($options);
 $dompdf->loadHtml($html);
 $dompdf->setPaper('A4', 'portrait');
 $dompdf->render();
 
-// Adicionar número de páginas no rodapé (CORRETO AGORA)
+// Rodapé
 $canvas = $dompdf->getCanvas();
-$font = $dompdf->getFontMetrics()->getFont('Arial', 'normal');
-$canvas->page_text(520, 820, "Página {PAGE_NUM} de {PAGE_COUNT}", $font, 10, array(0, 0, 0));
+$font = $dompdf->getFontMetrics()->getFont('Helvetica', 'normal');
+$canvas->page_text(270, 820, "Página {PAGE_NUM} de {PAGE_COUNT}", $font, 8, [0, 0, 0]);
 
-// Gerar o PDF no navegador
+ob_end_clean();
 $dompdf->stream("prova_{$id_prova}.pdf", ["Attachment" => false]);
+
+
 ?>
