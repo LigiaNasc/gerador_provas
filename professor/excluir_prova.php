@@ -4,9 +4,9 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 require_once('../conex.php');
+include('../protect.php');
 require_once('verificar_professor.php');
 verificarProfessor();
-include('../protect.php');
 
 $conn = getConexao();
 

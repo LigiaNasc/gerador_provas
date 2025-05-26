@@ -7,9 +7,9 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
         <ul>
             <li><a href="index.php">Início</a></li>
-            <li><a href="professor.php">Professores</a></li>
-            <li><a href="questoes.php">Questões</a></li>
-            <li><a href="prova.php">Gerar Prova</a></li>
+            <li><a href="pag-professor.php">Professores</a></li>
+            <li><a href="questoes/questoes.php">Questões</a></li>
+            <li><a href="questoes/prova.php">Gerar Prova</a></li>
         </ul>
     </div>
     

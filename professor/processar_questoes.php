@@ -4,11 +4,11 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 require_once('../conex.php'); // Inclua seu arquivo de conexão
+include('../protect.php'); 
 require_once('verificar_professor.php'); // Inclua a função de verificação
 
 // Chama a função para verificar se o usuário é um Professor
 verificarProfessor();
-include('../protect.php'); 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['questoes'])) {
     $questoesSelecionadas = $_POST['questoes']; // Array com os IDs das questões selecionadas

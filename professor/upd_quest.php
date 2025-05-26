@@ -3,10 +3,10 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 require_once('../conex.php');
+include('../protect.php');
 require_once('verificar_professor.php');
 
 verificarProfessor();
-include('../protect.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {

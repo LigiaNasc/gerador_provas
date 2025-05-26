@@ -1,8 +1,5 @@
 <?php
 require_once('../conex.php');
-require_once('verificar_admin.php'); // Inclua a função de verificação
-  verificarAdmin();
-
 include('../protect.php');
 
 // Inicia sessão se não estiver iniciada
@@ -58,10 +55,10 @@ $conn = null;
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="../assets/css/main.css">
-    <link rel="stylesheet" href="../assets/css/navbar.css">
-    <link rel="stylesheet" href="../assets/css/cadastro.css">
-    <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="stylesheet" href="../assets/css/config/main.css">
+    <link rel="stylesheet" href="../assets/css/navbar/navbar.css">
+    <link rel="stylesheet" href="../assets/css/login/cadastro.css">
+    <link rel="stylesheet" href="../assets/css/footer/footer.css">
     <title>Editar Professor</title>
 </head>
 <body>
@@ -75,7 +72,7 @@ $conn = null;
 
             <section class="main-section-2">
                 <form action="upd_prof.php" method="POST">
-                    <img src="../assets/img/logo.png" alt="">
+                    <img src="../assets/img/v-logo.png" alt="">
                     <input type="hidden" name="id" value="<?php echo htmlspecialchars($professor['id']); ?>">
                     <label for="nome">Nome:</label>
                     <input type="text" name="nome" id="nome" value="<?php echo htmlspecialchars($professor['nome']); ?>" required>

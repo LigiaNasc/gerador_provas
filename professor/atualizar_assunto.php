@@ -2,13 +2,13 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-require_once('../conex.php');
-require_once('verificar_professor.php'); // Inclua a função de verificação
+require_once(__DIR__ . '/../conex.php');
+include(__DIR__ .'/../protect.php');
+require_once(__DIR__ .'/verificar_professor.php'); // Inclua a função de verificação
 
 // Chama a função para verificar se o usuário é um Professor
 verificarProfessor();
 // Inicia sessão se não estiver iniciada
-include('../protect.php');
 
 
 
@@ -51,13 +51,30 @@ $conn = null;
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../assets/css/config/main.css">
+    <link rel="stylesheet" href="../assets/css/navbar/flat-navbar.css">
+    <link rel="stylesheet" href="../assets/css/login/cadastro.css">
     <title>Editar assunto</title>
 </head>
 
 <body>
-    <h1>Editar assunto</h1>
-    <form action="upd_ass.php" method="POST">
+    <nav class="navbar"></nav>
+    <main class="main-content">
+        <section class="main-section-1">
+            <div class="section-title">
+                <h1>Editar assunto</h1>
+            </div>
+        </section>
+        <section class="main-section-2">
+            <form action="upd_ass.php" method="POST">
         <input type="hidden" name="id" value="<?php echo htmlspecialchars($assunto['id']); ?>">
 
         <label for="nome">Nome:</label>
@@ -85,14 +102,15 @@ $conn = null;
         <input type="submit" value="Atualizar">
         
     </form>
-    <a style=" border: none;
-    border-radius: 20px;
-    padding: 0 30px;
-    font-weight: 600;
-    font-size: 0.9em;
-    background-color: #08486B;
-    color: #fff;
-    " href="assunto_prof.php">Voltar<a>
+        </section>
+    </main>
+    
+    
+    <div class="navigation-options">
+        <a href="assunto_prof.php">Voltar</a>
+    </div>
+
+    <script src="../assets/js/prof-navbar.js"></script>
 </body>
 
 </html>

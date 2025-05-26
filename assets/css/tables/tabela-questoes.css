@@ -1,0 +1,155 @@
+.section-title {
+    font-family: "Montserrat", sans-serif;
+    background-image: linear-gradient(var(--gradient));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bolder;
+    font-size: 1.75em;
+    width: 100%;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 60px;
+    width: 100%;
+}
+
+.main-content section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 20px;
+    text-align: justify;
+}
+
+.main-content section button {
+    border: none;
+    border-radius: 10px;
+    padding: 5px;
+    background-color: #0A4769;
+    color: #fff;
+}
+
+.main-content section button:hover {
+    background-color: #0c6493;
+    cursor: pointer;
+}
+
+.main-section-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+}
+
+.main-section-1 fieldset {
+    border: none;
+}
+
+.main-section-1 legend {
+    text-align: center;
+    font-weight: 600;
+    width: 100%;
+    border-bottom: 3px solid #0A4769;
+}
+
+.main-section-1 div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.main-section-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+}
+
+.main-section-2 form table {
+    text-align: justify;
+    padding: 10px;
+    border-collapse: collapse;
+}
+
+.main-section-2 table td, th {
+    border: 1px solid;
+}
+
+.main-section-2 th {
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    background-color: #03293e;
+}
+
+.main-section-2 td {
+    padding: 10px;
+}
+
+.main-section-2 .table-checkbox {
+    text-align: center;
+
+}
+.main-section-2 .table-checkbox input {
+    height: 20px;
+    width: 20px;
+}
+
+.main-section-2 div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+
+.table-actions a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 0 10px;
+    color: #fff;
+    margin: 10px;
+    text-decoration: none;
+
+}
+
+.table-actions .btn-edit {
+    background-color: #b3b3b3;
+}
+
+.table-actions .btn-delete {
+    background-color: #03293e;
+}
+
+
+.navigation-options {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 40px 0;
+}
+
+.navigation-options a{
+    border-radius: 25px;
+    padding: 10px;
+    background-color: #0A4769;
+    color: #fff;
+    margin: 0 30px;
+    text-decoration: none;
+}
+
+.navigation-options a:hover {
+    background-color: #0c6493;
+}

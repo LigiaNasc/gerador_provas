@@ -1,8 +1,5 @@
 <?php
 require_once('../conex.php');
-require_once('verificar_admin.php'); // Inclua a função de verificação
-  verificarAdmin();
-// Chama a função para verificar se o usuário é um administrador
 include('../protect.php');
 
 if (session_status() === PHP_SESSION_NONE) {

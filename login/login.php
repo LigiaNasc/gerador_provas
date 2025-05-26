@@ -1,0 +1,74 @@
+<?php
+require_once(__DIR__ . '/../conex.php');
+include(__DIR__ . '/function_login.php');
+
+if (session_status() === PHP_SESSION_NONE) session_start();
+
+// Captura a mensagem da sessão, se houver
+$message = $_SESSION['message'] ?? '';
+unset($_SESSION['message']); // Limpa após exibir
+?>
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+
+
+  <link rel="stylesheet" href="../assets/css/config/main.css">
+  <link rel="stylesheet" href="../assets/css/login/login.css">
+  <link rel="stylesheet" href="../assets/css/navbar/simple-navbar.css">
+  <link rel="stylesheet" href="../assets/css/footer/footer.css">
+  <title>Página de login</title>
+</head>
+
+<body>
+  <nav class="navbar"></nav>
+
+  <main class="main-content">
+
+    <section class="main-section-1">
+      <div class="section-title">
+        <h1>Não possui cadastro?</h1>
+      </div>
+      <button id="btn-title"><a href="cadastro_user.php">Cadastrar <img src="../assets/img/seta.png" alt=""></a></button>
+    </section>
+
+    <section class="main-section-2">
+      <form action="" method="POST" class="form-login">
+        <img src="../assets/img/v-logo.png" alt="">
+
+        <input type="text" id="email" name="email" placeholder="Email">
+        <input type="password" id="password" name="password" placeholder="Senha">
+
+        <button type="submit">Entrar</button>
+
+        <a href="esqueci_minha_senha.php">Esqueci minha senha</a>
+        <?php if (!empty($message)) echo "<p id='senha-incorreta'>" . htmlspecialchars($message) . "</p>"; ?>
+
+
+      </form>
+    </section>
+  </main>
+
+
+  <footer class="footer"></footer>
+
+  <script src="../assets/js/simple-navbar.js"></script>
+  <script src="../assets/js/footer.js"></script>
+
+
+</body>
+
+</html>

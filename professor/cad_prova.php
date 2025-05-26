@@ -1,13 +1,12 @@
 <?php
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
+require_once('../conex.php'); // Inclua seu arquivo de conexão
 include('../protect.php'); 
 require_once('verificar_professor.php'); // Inclua a função de verificação
 
 // Chama a função para verificar se o usuário é um Professor
 verificarProfessor();
-require_once('../conex.php'); // Inclua seu arquivo de conexão
-
 }
 // Verificar se dados foram enviados
 if (isset($_POST['titulo'], $_POST['questoes'])) {

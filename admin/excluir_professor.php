@@ -3,9 +3,7 @@ require_once('../conex.php');
 session_start();
 require('verificar_admin.php');
 verificarAdmin();
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
+
 $conn = getConexao();
 
 if (isset($_GET['id'])) {

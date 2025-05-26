@@ -3,10 +3,10 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 require_once('../conex.php');
+include('../protect.php');
 require_once('verificar_professor.php');
 // Verifica se o usuário é professor
 verificarProfessor();
-include('../protect.php');
 
 try {
     // Verifica se o ID da questão foi passado na URL
@@ -62,9 +62,9 @@ $conn = null;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../assets/css/main.css" />
-    <link rel="stylesheet" href="../assets/css/navbar.css" />
-    <link rel="stylesheet" href="../assets/css/footer.css" />
+    <link rel="stylesheet" href="../assets/css/config/main.css" />
+    <link rel="stylesheet" href="../assets/css/navbar/navbar.css" />
+    <link rel="stylesheet" href="../assets/css/footer/footer.css" />
     <title>Editar Questão</title>
 </head>
 

@@ -11,11 +11,11 @@ error_reporting(E_ALL);
 
 // Inclui arquivos necessários
 require_once('../conex.php');
+include('../protect.php');
 require_once('verificar_professor.php'); // Inclua a função de verificação
 
 // Chama a função para verificar se o usuário é um professor
 verificarProfessor();
-include('../protect.php');
 
 $conn = getConexao();
 if (!$conn) {

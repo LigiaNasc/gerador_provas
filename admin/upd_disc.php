@@ -1,8 +1,5 @@
 <?php
 require_once('../conex.php');
-require_once('verificar_admin.php'); // Inclua a função de verificação
-  verificarAdmin();
-
 include('../protect.php');
 
 // Inicia sessão se não estiver iniciada

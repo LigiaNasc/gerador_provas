@@ -1,13 +1,13 @@
 <?php
 require_once('../conex.php');
-require_once('verificar_admin.php'); // Inclua a função de verificação
-  verificarAdmin();
-
 include('../protect.php');
 // Inicia sessão se não estiver iniciada
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+require_once('verificar_admin.php'); // Verifica se o usuário é administrador
+verificarAdmin();
+
 $conn = getConexao();
 
 // Captura termo de busca
@@ -44,25 +44,26 @@ $result = $stmt;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../assets/css/main.css" />
-    <link rel="stylesheet" href="../assets/css/navbar.css" />
-    <link rel="stylesheet" href="../assets/css/footer.css" />
-    <link rel="stylesheet" href="../assets/css/professor.css" />
+    <link rel="stylesheet" href="../assets/css/config/main.css" />
+    <link rel="stylesheet" href="../assets/css/navbar/flat-navbar.css" />
+    <link rel="stylesheet" href="../assets/css/footer/footer.css" />
+    <link rel="stylesheet" href="../assets/css/tables/tabela-1.css" />
     <title>Professores</title>
 </head>
 <body>
     <nav class="navbar"></nav>
-    
-    <main class="container">
-        <h1>Lista de Professores</h1>
+    <main class="main-content">
+        <div class="section-title">
+            <h1>Lista de Professores</h1>
+        </div>
         
         <form method="POST" class="search-bar">
             <input type="text" name="busca" placeholder="Pesquisar por nome ou disciplina" value="<?= htmlspecialchars($busca) ?>">
             <button type="submit" class="btn-buscar">Buscar</button>
         </form>
         
-        <div class="table-responsive">
-            <table class="tabela-dados">
+        <div class="table">
+            <table class="table-date">
                 <thead>
                     <tr>
                         <th>Nome</th>
@@ -80,9 +81,9 @@ $result = $stmt;
                                 <td><?= htmlspecialchars($user_data['nome']) ?></td>
                                 <td><?= htmlspecialchars($user_data['email']) ?></td>
                                 <td><?= htmlspecialchars($user_data['disciplinas_nome']) ?></td>
-                                <td class="tabela-acoes">
-                                    <a href="atualizar_prof.php?id=<?= $user_data['id'] ?>" class="btn-editar">Editar</a>
-                                    <a href="excluir_professor.php?id=<?= $user_data['id'] ?>" class="btn-excluir" onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
+                                <td class="table-actions">
+                                    <a href="atualizar_prof.php?id=<?= $user_data['id'] ?>" class="btn-edit">Editar</a>
+                                    <a href="excluir_professor.php?id=<?= $user_data['id'] ?>" class="btn-delete" onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
                                 </td>
                             </tr>
                         <?php endwhile; ?>
@@ -102,7 +103,7 @@ $result = $stmt;
 
     <footer class="footer"></footer>
 
-    <script src="assets/js/navbar.js"></script>
-    <script src="assets/js/footer.js"></script>
+    <script src="../assets/js/admin-navbar.js"></script>
+
 </body>
 </html>

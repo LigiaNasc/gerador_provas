@@ -3,12 +3,11 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 require_once('../conex.php'); // Inclua seu arquivo de conexão
+include('../protect.php');
 require_once('verificar_professor.php');// Inclua a função de verificação
 
 // Chama a função para verificar se o usuário é um administrador
 verificarProfessor();
-include('../protect.php');
-
 include('function_cad_ass.php');
 
 ?>
@@ -26,10 +25,10 @@ include('function_cad_ass.php');
         rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../assets/css/main.css">
-    <link rel="stylesheet" href="../assets/css/cadastro.css">
-    <link rel="stylesheet" href="../assets/css/navbar.css">
-    <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="stylesheet" href="../assets/css/config/main.css">
+    <link rel="stylesheet" href="../assets/css/login/cadastro.css">
+    <link rel="stylesheet" href="../assets/css/navbar/navbar.css">
+    <link rel="stylesheet" href="../assets/css/footer/footer.css">
     <title>Página de Cadastro</title>
 </head>
 
@@ -37,16 +36,19 @@ include('function_cad_ass.php');
     <nav class="navbar"></nav>
     <main class="main-content">
 
-        <section>
-            <h1 class="title">Cadastro</h1>
-            <p>Infome seus dados para realizar o cadastro no sistema.</p>
+        <section class="main-section-1">
+            <div class="section-title">
+                <h1>Cadastro</h1>
+            </div>
+            <p>Infome os dados para realizar o cadastro do assunto no sistema.</p>
         </section>
 
-        <section>
+        <section class="main-section-2">
             <?php if (!empty($message)): ?>
                 <p><?php echo $message; ?></p>
             <?php endif; ?>
             <form action="" method="POST" class="form-login">
+                <img src="../assets/img/v-logo.png" alt="">
                 <label for="nome">Nome do assunto</label>
                 <input type="text" id="nome" name="nome" required>
 
@@ -61,16 +63,15 @@ include('function_cad_ass.php');
                 </select>
                 <button type="submit">Cadastrar</button>
 
-            </form><br>
-            <a href="assunto_prof.php"><button>voltar</button></a>
+            </form>
         </section>
-
-
     </main>
+    <div class="navigation-options">
+        <a href="assunto_prof.php">voltar</a>
+    </div>
+   <footer class="footer"></footer>                 
 
 
-
-    <footer class="footer"></footer>
     <script src="../assets/js/navbar.js"></script>
     <script src="../assets/js/footer.js"></script>
 </body>

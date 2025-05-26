@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="footer-section-1">
                 <p class="footer-title">Desenvolvedores</p class="footer-title">
                 <p><a href="https://www.instagram.com/marciolc_/" target="_blank">Mácio Gabriel Lopes Carvalho</a></p>
-                <p><a href="https://github.com/LigiaNasc" target="_blank">Maria Lígia do Nascimento Sousa</a></p>
+                <p><a href="https://github.com/LigiaNasc" target="_blank">Maria Lígia do Nascimento Souza</a></p>
                 <p><a href="https://github.com/ogeraldinh" target="_blank">Geraldo Duarte de Medeiros Neto</a></p>
                 <p><a href="https://www.instagram.com/davifreitt/" target="_blank">Davi Freitas Alves</a></p>
                 <p><a href="http://instagram.com/_p.fla/" target="_blank">Paulo Flávio Quirino Neto</a></p>

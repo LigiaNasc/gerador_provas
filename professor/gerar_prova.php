@@ -49,30 +49,32 @@ $questoes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 // Gerar o HTML da prova
 $html = "
 <style>
-    body { font-family: Arial, sans-serif; font-size: 12px; margin: 50px 40px 80px 40px; }
-    header { text-align: center; margin-bottom: 20px; }
+    body { font-family: Arial, sans-serif; font-size:120px; }
+    .header { text-align: center; margin-bottom: 5px; }
     header img { width: 100px; }
-    h1 { font-size: 20px; margin-bottom: 5px; }
-    .info { margin-bottom: 20px; }
-    .info p { margin: 5px 0; }
-    hr { margin: 20px 0; }
-    ol { margin-top: 20px; }
-    .questao { margin-bottom: 30px; }
+    h1 { font-size: 16px; margin-bottom: 5px; }
+    .info { margin-bottom: 5px; }
+    .info p { margin: 2px 0; font-size: 13px; }
+    .cabecalho { margin: 5px 0; }
+    .pzinho { font-size: 12px; }
+    ol { margin-top: 5px; padding-left: 20px; }
+    .questao { margin-bottom: 5px; }
+    ul { margin-top: 2px; margin-bottom: 5px; padding-left: 20px; }
+    li { margin-bottom: 2px; }
 </style>
-
-<header>
-    <img src='http://localhost/gerador-prova/img/logo_escola.png' alt='Logo da Escola'><br>
-    <h1>{$prova['nome_prova']}</h1>
-</header>
+    <header class='header'>
+         <img src='http://localhost/gerador-prova/img/logo_escola.png' alt='Logo da Escola'><br>
+         <h1>{$prova['nome_prova']}</h1>
+     </header>
 
 <div class='info'>
     <p><strong>Aluno:</strong> ___________________________________________</p>
     <p><strong>Data:</strong> ____/____/______</p>
 </div>
 
-<hr>
+<hr class='cabecalho'>
 
-<p>{$prova['cabecalho']}</p>
+    <p class=pzinho >{$prova['cabecalho']}</p>
 
 <hr>
 <ol>";

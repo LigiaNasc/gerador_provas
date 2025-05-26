@@ -1,15 +1,10 @@
 <?php
 require_once('../conex.php');
 include("../pesquisar_disc.php");
-require_once('verificar_admin.php'); // Inclua a função de verificação
-  verificarAdmin();
-// Chama a função para verificar se o usuário é um administrador
 include('../protect.php');
 
+// Inicializa a variável $result
 
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
 ?>
 
 <!DOCTYPE html>
@@ -21,10 +16,9 @@ if (session_status() === PHP_SESSION_NONE) {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../assets/css/main.css" />
-    <link rel="stylesheet" href="../assets/css/navbar.css" />
-    <link rel="stylesheet" href="../assets/css/tabela-disciplinas.css" />
-    <link rel="stylesheet" href="../assets/css/footer.css" />
+    <link rel="stylesheet" href="../assets/css/config/main.css" />
+    <link rel="stylesheet" href="../assets/css/navbar/flat-navbar.css" />
+    <link rel="stylesheet" href="../assets/css/tables/tabela-disciplinas.css" />
     <title>Disciplinas</title>
 </head>
 
@@ -78,6 +72,7 @@ if (session_status() === PHP_SESSION_NONE) {
         </section>
     </main>
 
+    <script src="../assets/js/admin-navbar.js"></script>
 </body>
 
 </html>
